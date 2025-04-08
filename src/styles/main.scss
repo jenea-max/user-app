@@ -1,0 +1,136 @@
+// Импорт переменных
+@import './variables';
+
+// Базовые стили
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  padding: 20px;
+  background-color: $light-gray;
+}
+
+// Компоненты
+
+// Стиль страницы списка пользователей
+.user-list-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+
+  .controls {
+    margin: 20px 0;
+    display: flex;
+    gap: 15px;
+
+    input, select {
+      padding: 8px 12px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-size: 16px;
+    }
+  }
+
+  .user-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+
+    .user-card {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: $box-shadow;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.3s;
+
+      &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      }
+
+      h3 {
+        color: $primary-color;
+      }
+    }
+  }
+}
+
+// Стиль страницы деталей пользователя
+.user-details {
+  max-width: 800px;
+  margin: 0 auto;
+  background: white;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: $box-shadow;
+
+  .details-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+  }
+}
+
+// Стиль для загрузки и ошибок
+.loading, .error {
+  padding: 20px;
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+.error {
+  color: #e74c3c;
+  font-weight: bold;
+}
+
+// Стиль для элементов управления (поиск и фильтр)
+.controls {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 20px;
+  padding: 15px;
+  background: white;
+  border-radius: $border-radius;
+  box-shadow: $box-shadow;
+
+  input, select {
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: $border-radius;
+    font-size: 16px;
+    flex: 1;
+  }
+
+  select {
+    max-width: 250px;
+  }
+}
+
+// Стиль для спиннера загрузки
+.spinner-container {
+  display: flex;
+  justify-content: center;
+  padding: 40px;
+
+  .loading-spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid $primary-color;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+}
+
+// Анимация спиннера
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
